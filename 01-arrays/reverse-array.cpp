@@ -3,23 +3,26 @@
 // Problem Link : https://www.geeksforgeeks.org/problems/reverse-an-array/1
 // Time Complexity : O(N)
 // Space Complexity : O(1)
-// Approach : iterate upto n/2 elements and swap the i-th element from the front with the (n-i-1)-th element from the back in-place
+// Approach : 
+// 1. Optimal: Two-pointer approach using std::swap in-place (start & end pointers).
+// 2. Alternative: Traverse up to N/2 using a loop and swap using a temp variable.
 
-#include <iostream>;
-#include <vector>;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {
-  public:
-    void reverseArray(vector<int> &arr) {
-        int n = arr.size();
+public:
+    void reverseArray(vector<int>& arr) {
+        int start = 0;
+        int end = arr.size() - 1;
 
-        for(int i=0;i<n/2;i++)
-        {
-            int start = i , end = n-i-1;
-            int temp = arr[start];
-            arr[i] = arr[end];
-            arr[end] = temp;
+        while (start < end) {
+            swap(arr[start], arr[end]);
+            start++;
+            end--;
         }
     }
 };
+
