@@ -13,15 +13,19 @@ class Solution {
 public:
     int missingNum(vector<int>& arr) {
         long long n = arr.size() + 1;
-        long long arraySum = 0;
+        int xorValue = 0;
         
-        // sum of array
-        for (int i = 0; i < arr.size(); i++) {
-            arraySum += arr[i];
+        // xor with array elements
+        for (int num : arr) 
+        {
+            xorValue ^= num;
         }
         
-        // sum of n natural numbers
-        long long totalSum = n * (n + 1) / 2;
-        return totalSum - arraySum;
+        // xor with 1 to n numbers
+        for(int i=1;i<=n;i++)
+        {
+            xorValue ^= i;
+        }
+        return xorValue;
     }
 };
