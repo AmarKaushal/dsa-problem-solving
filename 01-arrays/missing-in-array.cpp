@@ -3,7 +3,9 @@
 // Problem Link : https://www.geeksforgeeks.org/problems/missing-number-in-array1416/1
 // Time Complexity : O(N)
 // Space Complexity : O(1)
-// Approach : Sum of first N natural numbers minus array sum. Uses 'long long' to prevent integer overflow.
+// Approaches Included :
+// 1. Math Sum Formula (N*(N+1)/2 - arraySum) using 'long long' to handle integer overflow.
+// 2. Bitwise XOR (a ^ a = 0) to avoid any overflow risk entirely.
 
 #include <iostream>
 #include <vector>
